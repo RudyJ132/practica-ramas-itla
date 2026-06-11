@@ -1,0 +1,15 @@
+name: Notificacion NTFY
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificacion a ntfy.sh
+        run: |
+          curl -d "Push a main en practica-ramas-itla por ${{ github.actor }}" \
+          https://ntfy.sh/devops-itla
